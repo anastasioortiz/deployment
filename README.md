@@ -1,1 +1,1 @@
-# deployment
+cd my-app# deployment
