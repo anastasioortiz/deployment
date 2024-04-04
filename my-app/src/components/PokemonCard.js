@@ -35,20 +35,16 @@ export default function PokemonCard(props){
     const addPokemon = (pokemon) => {
 
         if (Array.isArray(props.pokemonTeam)) {
-            // Find the index of the first zero entry in the pokemonTeam array
             const indexToAddPokemon = props.pokemonTeam.findIndex(id => id === 0);
           
             if (indexToAddPokemon !== -1) {
-              // If a zero entry is found, update the pokemonTeam array
               props.setPokemonTeam(prevTeam => {
                 const updatedTeam = [...prevTeam];
                 updatedTeam[indexToAddPokemon] = pokemon;
                 setMemberNumber(indexToAddPokemon);
-
                 return updatedTeam;
               });
             } else {
-              // If no zero entry is found, handle the error or provide appropriate feedback
               console.error("No space available in the team to add Pokémon.");
             }
           } else {
