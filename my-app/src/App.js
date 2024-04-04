@@ -20,7 +20,7 @@ export const typeMap =  createImageMap(types);
 function createImageMap(types) {
   const map = {};
   types.forEach(type => {
-    // map[type] = "./" + process.env.PUBLIC_URL + "/typeImages/" + type + ".svg";
+    map[type] = "./" + process.env.PUBLIC_URL + "/typeImages/" + type + ".svg";
     
   });
   return map;
