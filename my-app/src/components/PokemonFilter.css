@@ -1,0 +1,29 @@
+.typeImg {
+    cursor: pointer;
+    max-width:5%;
+    border: 50%;
+    border-color: gold;
+    opacity: 20%
+}
+  
+.typeImg.selected {
+    opacity: 100%
+}
+
+.filter{
+    width:40%;
+}
+
+.filterHolder{
+    display:flex;
+    flex-direction: row;
+    margin:1%;
+
+}
+
+header{
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    color: black;
+}
