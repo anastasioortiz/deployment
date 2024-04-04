@@ -1,6 +1,5 @@
 import { typeMap } from "../App";
 import "./PokemonFilter.css";
-import { useState } from "react";
 import pokemonData from "../pokemon.json"
 
 
@@ -49,18 +48,14 @@ export default function PokemonFilter(props){
 }
 
 function checkFilterType(type, typePressed) {
-    // If the type has length 1 or 2
     if (type.length === 1 || type.length === 2) {
-      // Check if at least one type in the filter state is false
       for (const typeName of type) {
         if (!typePressed[typeName]) {
           return false;
         }
       }
-      // If all types are true, return true
       return true;
     } else {
-      // If the type doesn't have length 1 or 2, return false
       return false;
     }
   }

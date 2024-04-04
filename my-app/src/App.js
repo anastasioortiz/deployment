@@ -52,8 +52,8 @@ function App() {
   const [showPokemon, setShowPokemon] = useState(() =>{
     var map = {};
     pokemonData.map((item, index) => { 
-      // Check if the types of the current Pokemon match the filter state
       map[index] = true;
+      return true;
     })
     return map; 
   });

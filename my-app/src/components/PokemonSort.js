@@ -1,6 +1,4 @@
-import { typeMap } from "../App";
 import "./PokemonSort.css"
-import { useState } from "react";
 import {sortTypes} from "../App";
 
 
@@ -18,10 +16,6 @@ export default function PokemonSort(props){
             console.error("Invalid or duplicate sort type:", newSortType);
           }
     };
-
-    const arrowImage = "./" + process.env.PUBLIC_URL + "/images/arrows.png";
-
-
 
     return(
         <div className="Sorter">

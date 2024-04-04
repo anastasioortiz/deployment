@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { typeMap } from "../App";
 import "./pokemonCard.css";
-import pokemonData from "../App";
 
 
 
