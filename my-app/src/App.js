@@ -24,6 +24,7 @@ function createImageMap(types) {
     
   });
   return map;
+  
 }
 
 
@@ -74,9 +75,7 @@ function App() {
             {pokemonData
             
             .sort((a, b) => {
-              let sortOrder = 1; // Default sort order
-
-              // If isSortPressed is true, reverse the sort order
+              let sortOrder = 1; 
               if (sortDir) {
                 sortOrder = -1;
               }
@@ -104,10 +103,6 @@ function App() {
             })
             
             .map((item, index) => { 
-                  // Check if the types of the current Pokemon match the filter state
-
-                  
-                  // Render the PokemonCard only if the types match the filter state
                   return(
                   <PokemonCard 
                   key={index} id={formatNumber(item.id)} name={item.name.english} type={item.type} base={item.base} image={item.image} 
@@ -130,15 +125,12 @@ function App() {
 
 
 function formatNumber(number) {
-  // Ensure the number is within the range 0-999
   if (number < 0 || number > 999) {
       return "Invalid number";
   }
 
-  // Convert the number to a string
   let numberString = number.toString();
 
-  // Add leading zeros if necessary to make it three digits long
   while (numberString.length < 3) {
       numberString = "0" + numberString;
   }

@@ -1,10 +1,9 @@
 
 import "./PokemonTeam.css"
-// import formatNumber from "../App.js"
 
 export default function PokemonTeam(props){
 
-    const booleanArray = Array(6).fill(false); // Initialize array of 6 false booleans
+    const booleanArray = Array(6).fill(false); 
     
 
     props.pokemonTeam.forEach((value, index) => {
