@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { typeMap } from "../App";
 import "./pokemonCard.css";
 
@@ -7,6 +7,12 @@ import "./pokemonCard.css";
 
 
 export default function PokemonCard(props){
+
+
+    useEffect(()=> {
+        console.log("use effect");
+      }, [props.typePressed, props.setTypePressed, props.pokemonTeam, props.setPokemonTeam])
+
    const [memberNumber, setMemberNumber] = useState(-1);
  
 

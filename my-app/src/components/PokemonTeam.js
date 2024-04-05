@@ -4,6 +4,7 @@ import "./PokemonTeam.css"
 export default function PokemonTeam(props){
 
     const booleanArray = Array(6).fill(false); 
+    const fullBall = "./" + process.env.PUBLIC_URL + "/images/fullBall.png";
     
 
     props.pokemonTeam.forEach((value, index) => {
@@ -15,11 +16,15 @@ export default function PokemonTeam(props){
 
     return(
     <div className="team-box">
+        <div className="TeamCounter">
 
+        </div>
         {booleanArray.map((value, index) => (value && 
         <div className="TeamMemberHolder">
-
+                <img src={fullBall}/>
+                
                 <img src={props.pokemonTeam[index].image} alt={props.pokemonTeam[index].name.english + "image"}/>
+                
 
 
         </div>

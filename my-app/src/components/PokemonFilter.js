@@ -1,26 +1,32 @@
 import { typeMap } from "../App";
 import "./PokemonFilter.css";
 import pokemonData from "../pokemon.json"
+import { useEffect } from "react";
 
 
 export default function PokemonFilter(props){
     
     
-
+  useEffect(()=> {
+    console.log("use effect");
+  }, [props.typePressed, props.setTypePressed, props.showPokemon, props.setShowPokemon])
     
 
     function handleTypeClick(typeName){
+      
+      if(typeName != null){
         props.setTypePressed(prevState => ({
           ...prevState,
           [typeName]: !prevState[typeName]
         }));
-        console.log(props.typePressed);
-        const updatedShowPokemon = {};
+        console.log({typeName} + ": " + props.typePressed[typeName]);
+        const updatedShowPokemon = {};        
         pokemonData.forEach((item, index) => {
             updatedShowPokemon[index + 1] = checkFilterType(item.type, props.typePressed);
           });
-        props.setShowPokemon((updatedShowPokemon), props.showPokemon);
-        console.log(props.showPokemon);
+        props.setShowPokemon(prevShowPokemon =>(updatedShowPokemon));
+        console.log(updatedShowPokemon);
+      }
     };
     
       
@@ -61,6 +67,7 @@ function checkFilterType(type, typePressed) {
   }
 
  
+
 
 
   

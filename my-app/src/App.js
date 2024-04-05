@@ -2,7 +2,7 @@ import pokemonData from "./pokemon.json";
 import './App.css';
 import PokemonCard from './components/PokemonCard';
 import PokemonFilter from './components/PokemonFilter';
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import PokemonSort from "./components/PokemonSort";
 import PokemonTeam from "./components/PokemonTeam";
 
@@ -31,6 +31,10 @@ function createImageMap(types) {
 
 
 function App() {
+
+  
+
+
   const [typePressed, setTypePressed] = useState(() => {
     const initialState = {};
     Object.keys(typeMap).forEach((typeName) => {
@@ -40,11 +44,11 @@ function App() {
   });
 
   const [sortType, setSortType] = useState("Entry");
-
   const [sortDir, setSortDir] = useState(false);
   const [pokemonTeam, setPokemonTeam] = useState(() => Array(6).fill(0));
+  
 
-  // Functional version of isTeamFull function
+
   const isTeamFull = () => {
     return pokemonTeam.every(value => value !== 0);
   };
@@ -52,11 +56,15 @@ function App() {
   const [showPokemon, setShowPokemon] = useState(() =>{
     var map = {};
     pokemonData.map((item, index) => { 
-      map[index] = true;
+      map[item.id] = true;
       return true;
     })
     return map; 
   });
+
+  useEffect(()=> {
+    console.log("use effect");
+  }, [typePressed, setTypePressed, showPokemon, setShowPokemon])
 
 
   return (
@@ -64,7 +72,7 @@ function App() {
       <h1>Pokedex</h1>
       <div className="Holder">
         
-          <div className="leftSide">
+          <div className="bottomPart">
             <div className = "searchBar">
               <PokemonFilter typePressed={typePressed} setTypePressed={setTypePressed}
                               showPokemon={showPokemon} setShowPokemon={setShowPokemon}
@@ -111,7 +119,7 @@ function App() {
                 })}
             </div>
           </div>
-          <div className="rightSide">
+          <div className="topPart">
             <h2> Team </h2>
             <div className="teamHolder"> 
                 <PokemonTeam pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} isTeamFull={isTeamFull}></PokemonTeam>

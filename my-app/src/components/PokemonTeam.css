@@ -9,14 +9,18 @@
 }
 
 .TeamMemberHolder{
-    
     height: 10%;
-    width:10%
+    width:10% ;
+    position: relative;
+    display: inline;
 }
 
 .TeamMemberHolder img{
     width: 50%;
     height: 10%;
+    /* position: absolute; */
+    /* bottom: 0;
+    right: 0; */
 }
 
 .teamFull {
