@@ -64,8 +64,7 @@ function App() {
     return map; 
   });
 
-  useEffect(()=> {
-  }, [typePressed, setTypePressed, showPokemon, setShowPokemon])
+  
 
 
   return (

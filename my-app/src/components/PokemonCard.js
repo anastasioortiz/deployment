@@ -69,9 +69,7 @@ export default function PokemonCard(props){
           });
       };
 
-    const isHPInRange = () => {
-        return props.HP > props.hpFilter.min && props.HP < props.hpFilter.max;
-    }
+    
     return(
 
         props.showPokemon[removeLeadingZeros(props.id)] &&  
