@@ -31,9 +31,11 @@ function createImageMap(types) {
 
 
 function App() {
-
+  
   
 
+  const [hpFilter, setHPFilter] = useState({ min: 0, max: 260 });
+  
 
   const [typePressed, setTypePressed] = useState(() => {
     const initialState = {};
@@ -63,7 +65,6 @@ function App() {
   });
 
   useEffect(()=> {
-    console.log("use effect");
   }, [typePressed, setTypePressed, showPokemon, setShowPokemon])
 
 
@@ -76,7 +77,8 @@ function App() {
             <div className = "searchBar">
               <PokemonFilter typePressed={typePressed} setTypePressed={setTypePressed}
                               showPokemon={showPokemon} setShowPokemon={setShowPokemon}
-                              pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam}/>
+                              pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam}
+                              hpFilter={hpFilter} setHPFilter={setHPFilter}/>
               <PokemonSort sortType={sortType} setSortType={setSortType} sortDir={sortDir} setSortDir={setSortDir}/>
             </div>
             <div className="CardHolder">
@@ -115,6 +117,7 @@ function App() {
                   <PokemonCard 
                   key={index} id={formatNumber(item.id)} name={item.name.english} type={item.type} base={item.base} image={item.image} 
                   pokemonTeam={pokemonTeam} setPokemonTeam={setPokemonTeam} showPokemon={showPokemon} setShowPokemon={setShowPokemon}
+                  hpFilter={hpFilter} setHPFilter={setHPFilter}
                   />)
                 })}
             </div>

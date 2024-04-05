@@ -8,9 +8,7 @@ import "./pokemonCard.css";
 
 export default function PokemonCard(props){
 
-
     useEffect(()=> {
-        console.log("use effect");
       }, [props.typePressed, props.setTypePressed, props.pokemonTeam, props.setPokemonTeam])
 
    const [memberNumber, setMemberNumber] = useState(-1);
@@ -27,15 +25,10 @@ export default function PokemonCard(props){
     
     function handleClick(){
         if(isOnTeam()){
-            removePokemon();
-            console.log("remove")
-            
-        } else {
-            
+            removePokemon();           
+        } else {           
             addPokemon(props);
-            console.log("add")
         }
-        console.log(props.pokemonTeam[0])
     }
 
     const addPokemon = (pokemon) => {
@@ -51,11 +44,8 @@ export default function PokemonCard(props){
                 return updatedTeam;
               });
             } else {
-              console.error("No space available in the team to add Pokémon.");
             }
           } else {
-            // Handle the case where props.pokemonTeam is not an array (e.g., if it's not initialized properly)
-            console.error("props.pokemonTeam is not properly initialized.");
           }
         
       };
@@ -71,21 +61,20 @@ export default function PokemonCard(props){
 
                 return updatedTeam;
               } else {
-
-                console.error("Invalid index to remove from the team.");
-                return prevTeam; // Return the team unchanged
+                return prevTeam; 
               }
             } else {
-              console.error("props.pokemonTeam is not an array.");
-              return prevTeam; // Return the team unchanged
+              return prevTeam; 
             }
           });
       };
 
-
+    const isHPInRange = () => {
+        return props.HP > props.hpFilter.min && props.HP < props.hpFilter.max;
+    }
     return(
 
-        props.showPokemon[removeLeadingZeros(props.id)] && 
+        props.showPokemon[removeLeadingZeros(props.id)] &&  
         <div className="pokemonItem">
             <div className="PokemonInfo">
                 <div className="leftInfo">

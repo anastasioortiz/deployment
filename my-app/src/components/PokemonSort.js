@@ -12,9 +12,7 @@ export default function PokemonSort(props){
     const changeSort = (newSortType) => {
         if (newSortType !== props.sortType && sortTypes.includes(newSortType)) {
             props.setSortType(newSortType);
-          } else {
-            console.error("Invalid or duplicate sort type:", newSortType);
-          }
+        }
     };
 
     return(
@@ -39,7 +37,7 @@ export default function PokemonSort(props){
             
         </div>
     );
+
+
 }
-
-
 
